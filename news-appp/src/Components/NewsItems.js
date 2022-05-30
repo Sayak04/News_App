@@ -1,19 +1,22 @@
+import React, {Component} from 'react';
 import {Card, Button} from 'react-bootstrap'
 
-const NewsItems = (props) => {
-  return (
-    <>
-      <Card style={{ width: "18rem" }}>
-        <Card.Img variant="top" src={props.img} />
+class NewsItems extends Component {
+  render() {
+    return(
+      <>
+        <Card style={{ width: "18rem" }}>
+        <Card.Img variant="top" src={this.props.img} />
         <Card.Body>
-          <Card.Title>{props.title}</Card.Title>
+          <Card.Title>{this.props.title.slice(0,100)}...</Card.Title>
           <Card.Text>
-            {props.description}
+            {this.props.description.slice(0,200)}...
           </Card.Text>
-          <Button variant="primary">Go somewhere</Button>
+          <Button href={this.props.newsURl} target="_blank" variant="secondary btn-sm">Go somewhere</Button>
         </Card.Body>
       </Card>
-    </>
-  );
-};
+      </>
+    );
+  }
+}
 export default NewsItems;
